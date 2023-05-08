@@ -1,0 +1,35 @@
+= Dev Mode Demo
+
+This guide demonstrates the Dev Mode feature provided by the Liberty Plugin available for both Maven and Gradle.
+
+Dev mode features:
+
+- Automatically detect and deploy changes to source code and/or configuration.
+- Run unit and integration tests via the dev mode console.
+
+Dev mode allows developers to rapidly iterate while developing their applications. It promotes good practices such as making smaller changes and testing since changes are automatically deployed. Making an error with a smaller change is much easier to debug than making many changes, deploying, and then testing.
+
+== Demo
+
+. Launch *dev mode* using `./mvnw libery:dev`.
+. Open a browser to `http://localhost:9080/openapi/ui`.
+- Request fails with a 404.
+. Open `src/main/liberty/config/server.xml` and uncomment the `mpOpenAPI-3.1` feature.
+- Change to the `server.xml` should be detected and the `mpOpenAPI-3.1` feature is automatically enabled.
+. Refresh the OpenAPI page and the UI is now available!
+. One endpoint is available that lists all properties.
+- Click *Try it out* and *Execute*.
+- The set of JVM system properties is returned in a JSON format.
+. Try running the integration tests by pressing *Enter* in the dev mode console.
+- One test should pass and one test should fail with the error: `[ERROR   ] RESTEASY002005: Failed executing GET /properties/os.name`
+. Open `src/main/java/io/openliberty/guides/rest/PropertiesResource.java` and uncomment the `@GET` annotation for the `getProperty` method.
+- Change to the `PropertiesResource` should be automatically detected and deployed.
+. Refresh the OpenAPI UI webpage. You should see a new endpoint for getting a specific property.
+- Click *Try it Out*
+- Enter `answer.to.everything` for the value.
+- Click *Execute*
+- A JSON object with the value `TBD` should be returned.
+. Open `src/main/liberty/config/bootstrap.properties` and uncomment the `answer.to.everything` property.
+. Wait for changes to be deployed and click *Execute* again.
+- A JSON object with the value defined in `bootstrap.properties` should be returned now.
+. Try running the integration tests again and both tests should pass now!
