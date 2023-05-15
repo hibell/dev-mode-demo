@@ -11,7 +11,7 @@ Dev mode allows developers to rapidly iterate while developing their application
 
 == Demo
 
-. Launch *dev mode* using `./mvnw libery:dev`.
+. Launch *dev mode* using `./mvnw liberty:dev`.
 . Open a browser to `http://localhost:9080/openapi/ui`.
 - Request fails with a 404.
 . Open `src/main/liberty/config/server.xml` and uncomment the `mpOpenAPI-3.1` feature.
