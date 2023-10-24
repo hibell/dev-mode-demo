@@ -1,4 +1,4 @@
-= Dev Mode Demo
+= Dev Mode Demo TEST
 
 This guide demonstrates the Dev Mode feature provided by the Liberty Plugin available for both Maven and Gradle.
 
