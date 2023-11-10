@@ -2,7 +2,7 @@
 
 This guide demonstrates the Dev Mode feature provided by the Liberty Plugin available for both Maven and Gradle.
 
-Dev mode features:
+== Dev mode features
 
 - Automatically detect and deploy changes to source code and/or configuration.
 - Run unit and integration tests via the dev mode console.
